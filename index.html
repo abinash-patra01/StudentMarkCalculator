@@ -1,24 +1,82 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Student Marks Calculator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GradeGlow | Student Calculator</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
 
-    <h1>Student Marks Calculator</h1>
+    <main class="container">
+        <header class="header">
+            <div class="logo">✦ GradeGlow</div>
+            <p>YOUR SMART STUDENT COMPANION</p>
+        </header>
 
-    <input type="text" id="name" placeholder="Enter Student Name">
+        <section class="calculator">
+            <div class="heading">
+                <span class="tag">✧ ACADEMIC TOOL</span>
+                <h1>Calculate Your <span>Success.</span></h1>
+                <p>Enter your marks and discover your performance.</p>
+            </div>
 
-    <input type="number" id="m1" placeholder="Subject 1 Marks">
-    <input type="number" id="m2" placeholder="Subject 2 Marks">
-    <input type="number" id="m3" placeholder="Subject 3 Marks">
-    <input type="number" id="m4" placeholder="Subject 4 Marks">
-    <input type="number" id="m5" placeholder="Subject 5 Marks">
+            <form id="marksForm">
+                <label for="studentName">Student Name</label>
+                <input type="text" id="studentName" placeholder="Enter your name" required>
 
-    <button onclick="calculate()">Calculate</button>
+                <div class="subject-heading">
+                    <label>Subject Marks</label>
+                    <span>Maximum 100 each</span>
+                </div>
 
-    <h3 id="result"></h3>
+                <div class="marks-grid">
+                    <input type="number" id="mark1" placeholder="Subject 1" min="0" max="100" required>
+                    <input type="number" id="mark2" placeholder="Subject 2" min="0" max="100" required>
+                    <input type="number" id="mark3" placeholder="Subject 3" min="0" max="100" required>
+                    <input type="number" id="mark4" placeholder="Subject 4" min="0" max="100" required>
+                    <input type="number" id="mark5" placeholder="Subject 5" min="0" max="100" required>
+                </div>
+
+                <button type="submit">Calculate Results <span>↗</span></button>
+            </form>
+
+            <section id="result" class="result hidden">
+                <div class="result-top">
+                    <div>
+                        <p class="result-label">YOUR RESULT</p>
+                        <h2 id="resultName">Student</h2>
+                    </div>
+                    <div id="grade" class="grade">A</div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <span>Total Marks</span>
+                        <strong id="total">0/500</strong>
+                    </div>
+                    <div class="stat">
+                        <span>Percentage</span>
+                        <strong id="percentage">0%</strong>
+                    </div>
+                </div>
+
+                <div class="progress-info">
+                    <span>Overall Performance</span>
+                    <span id="progressText">0%</span>
+                </div>
+                <div class="progress-track">
+                    <div id="progressBar" class="progress-bar"></div>
+                </div>
+
+                <p id="message" class="message"></p>
+            </section>
+        </section>
+
+        <footer>Made with <span>♥</span> for learners</footer>
+    </main>
 
     <script src="script.js"></script>
 </body>
